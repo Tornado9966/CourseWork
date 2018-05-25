@@ -141,39 +141,6 @@ int Tree<int>::FindValueByPos(Node* root, int posfind) {
 	value = 0;
 }
 
-/*bool Equal(Tree<int> tree1, Tree<int> tree2) {
-	int count1 = tree1.Counter(tree1.Root());
-	int count2 = tree2.Counter(tree2.Root());
-	if (count1 != count2) return false;
-
-	int levels1 = tree1.Levels(tree1.Root());
-	int levels2 = tree2.Levels(tree2.Root());
-	if (levels1 != levels2) return false;
-
-	for (int i = 1; i < pow(2, levels1); i++) {
-		if ((tree1.FindKeyByPos(tree1.Root(), i) != tree2.FindKeyByPos(tree2.Root(), i)) || (tree1.FindValueByPos(tree1.Root(), i) != tree2.FindValueByPos(tree2.Root(), i))) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && (tree2.FindKeyByPos(tree2.Root(), i))) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if ((tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i))) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i)) && (i == (pow(2, levels1)) - 1)) {
-			tree1.EqualTr = tree1.EqualTr;
-			tree2.EqualTr = tree2.EqualTr;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i))) {
-			i++;
-		}
-	}
-	return tree1.EqualTr;
-}*/
-
 void Tree<int>::Print(Node* root) {
 	if (root != nullptr) {
 		cout << "( " << root->key << ", " << root->value << " ) - " << root->pos << ", " << "level - " << root->level << endl;
@@ -181,35 +148,3 @@ void Tree<int>::Print(Node* root) {
 		Print(root->right);
 	}
 }
-
-/*int main() {
-	Tree<int> tree1;
-	tree1.Add(10, 5);
-	tree1.Add(12, 7);
-	tree1.Add(7, 8);
-	tree1.Add(5, 10);
-	tree1.Add(9, 15);
-	tree1.Add(11, 11);
-	tree1.Print(tree1.Root());
-
-	cout << tree1.FindKeyByPos(tree1.Root(), 5) << endl;
-	cout << endl;
-
-	Tree<int> tree2;
-	tree2.Add(10, 5);
-	tree2.Add(12, 7);
-	tree2.Add(7, 8);
-	tree2.Add(5, 10);
-	tree2.Add(9, 15);
-	tree2.Add(11, 11);
-	tree2.Print(tree2.Root());
-	cout << endl;
-	cout << Equal(tree1, tree2) << endl;
-
-	cout << tree1.Levels(tree1.Root()) << endl;
-
-	cout << tree1.count << endl;
-
-	system("pause");
-	return 0;
-}*/
