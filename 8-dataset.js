@@ -123,80 +123,8 @@ Transaction.start = (data) => {
   });
 };
 
-<<<<<<< HEAD
-
 // Usage
 
-=======
-function DatasetTransaction(dataset) {
-  this.dataset = dataset;
-  this.log = []; // array of LogRecord { time, operation, delta }
-  // [
-  //    { id, time: '2018-01-01T12:01:00', operation: 'start' }
-  //    { id, time: '2018-01-01T12:02:15', operation: 'set', delta }
-  //    { id, time: '2018-01-01T12:02:32', operation: 'commit', delta }
-  //    { id, time: '2018-01-01T12:02:37', operation: 'set', delta }
-  //    { id, time: '2018-01-01T12:03:11', operation: 'rollback', delta }
-  //    { id, time: '2018-01-01T12:03:18', operation: 'set', delta }
-  //    { id, time: '2018-01-01T12:04:42', operation: 'timeout' }
-  //    { id, time: '2018-01-01T12:04:52', operation: 'rollback', delta }
-  // ]
-}
-
-DatasetTransaction.start = function(dataset) {
-  // place implementation here
-  return new DatasetTransaction(dataset);
-};
-
-DatasetTransaction.prototype.commit = function() {
-  // place implementation here
-};
-
-DatasetTransaction.prototype.rollback = function(id /* optional log id */) {
-  // place implementation here
-};
-
-/*DatasetTransaction.prototype.timeout = function(
-  msec, // timeout, 0 - disable
-  commit, // true - commit, false - rollback
-  listener // (optional) function(boolean) : boolean
-) {
-  // place implementation here
-};*/
-
-/*DatasetTransaction.prototype.timeout = function(msec) {
-  setTimeout(DatasetTransaction.prototype.rollback(), msec);
-};
-
-DatasetTransaction.prototype.autoCommit = function(msec) {
-  isAutoCommit = true;
-  timeForAutoCommit = msec;
-  if (flag) {
-    setTimeout(DatasetTransaction.prototype.commit(), msec);
-    flag = false;
-  }
-};*/
-
-
-// Usage
-
-/*const data = [
-  { name: 'Marcus Aurelius', born: 121 },
-  { name: 'Marcus Aurelius', born: 121 },
-  { name: 'Marcus Aurelius', born: 121 },
-];
-
-const transaction = DatasetTransaction.start(data);
-
-for (const person of transaction.dataset) {
-  person.city = 'Shaoshan';
-}
-
-transaction.commit();
-
-console.dir({ data });*/
-
->>>>>>> 64f344c... Add files via upload
 const data = { name: 'Marcus', born: 121, city: 'Rome' };
 
 const transaction = Transaction.start(data);
