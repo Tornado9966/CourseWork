@@ -10,7 +10,8 @@ private:
 		T level;
 		Node* left;
 		Node* right;
-		Node(int kEy, int data, int position, int lev) {
+		Node(int kEy, int data, int position, int lev) 
+		{
 			key = kEy;
 			value = data;
 			pos = position;
@@ -20,7 +21,8 @@ private:
 		}
 	};
 
-	static void Add(Node *&node, int keyadd, int valueadd, int posadd, int leveladd) {
+	static void Add(Node *&node, int keyadd, int valueadd, int posadd, int leveladd) 
+	{
 		if (node == nullptr) {
 			node = new Node(keyadd, valueadd, posadd, leveladd);
 		}
@@ -41,17 +43,19 @@ public:
 	int levels = 0;
 	int key = 0;
 	int value = 0;
-	bool EqualTr = true;
 
-	Tree() {
+	Tree() 
+	{
 		root = nullptr;
 	};
 
-	Node* Root() {
+	Node* Root() 
+	{
 		return root;
 	}
 
-	void Add(int keyadd, int valueadd) {
+	void Add(int keyadd, int valueadd) 
+	{
 		Add(root, keyadd, valueadd, 1, 0);
 	}
 
@@ -68,39 +72,47 @@ public:
 	public:
 		Iterator(Node* node) : temp(node) {}
 
-		Iterator& operator =(const Iterator &it) {
+		Iterator& operator =(const Iterator &it) 
+		{
 			temp = it.temp;
 			return *this;
 		}
 
-		Iterator& operator ++() {
+		Iterator& operator ++() 
+		{
 			temp = temp->right;
 			return *this;
 		}
 
-		Iterator& operator --() {
+		Iterator& operator --() 
+		{
 			temp = temp->left;
 			return *this;
 		}
 
-		bool operator !=(const Iterator &smth) {
+		bool operator !=(const Iterator &smth) 
+		{
 			return (temp != smth.temp);
 		}
 
-		bool operator ==(const Iterator &smth) {
+		bool operator ==(const Iterator &smth) 
+		{
 			return (temp == smth.temp);
 		}
 
-		int& operator *() {
+		int& operator *() 
+		{
 			return temp->key;
 		}
 
-		Node* getNode() {
+		Node* getNode() 
+		{
 			return temp;
 		}
 	};
 
-	Iterator getIter() {
+	Iterator getIter() 
+	{
 		return Iterator(root);
 	}
 
