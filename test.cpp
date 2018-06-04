@@ -8,8 +8,6 @@ using namespace std;
 
 bool Equal(Tree<int> tree1, Tree<int> tree2) 
 {
-	bool equalTree = true;
-
 	int count1 = tree1.Counter(tree1.Root());
 	int count2 = tree2.Counter(tree2.Root());
 	if (count1 != count2) return false;
@@ -24,26 +22,14 @@ bool Equal(Tree<int> tree1, Tree<int> tree2)
 		int value1 = tree1.FindValueByPos(tree1.Root(), i);
 		int value2 = tree2.FindValueByPos(tree2.Root(), i);
 
-		if (key1 != key2) {
-			equalTree = false;
-		}
-		if (value1 != value2) {
-			equalTree = false;
-		}
-		if (!key1 && key2) {
-			equalTree = false;
-		}
-		if (key1 && !key2) {
-			equalTree = false;
-		}
-		if (!key1 && !key2 && (i == (pow(2, levels1)) - 1)) {
-			equalTree = equalTree;
-		}
-		if (!key1 && !key2) {
-			i++;
-		}
+		if (key1 != key2) return false;
+		if (value1 != value2) return false;
+		if (!key1 && key2) return false;
+		if (key1 && !key2) return false;
+		if (!key1 && !key2 && (i == (pow(2, levels1)) - 1)) continue;
+		if (!key1 && !key2) i++;
 	}
-	return equalTree;
+	return true;
 }
 
 TEST_CASE("Check Add") {
