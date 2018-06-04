@@ -6,7 +6,8 @@
 
 using namespace std;
 
-bool Equal(Tree<int> tree1, Tree<int> tree2) {
+bool Equal(Tree<int> tree1, Tree<int> tree2) 
+{
 	bool equalTree = true;
 
 	int count1 = tree1.Counter(tree1.Root());
