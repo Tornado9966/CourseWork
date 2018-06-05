@@ -6,7 +6,8 @@
 
 using namespace std;
 
-bool Equal(Tree<int> tree1, Tree<int> tree2) {
+bool Equal(Tree<int> tree1, Tree<int> tree2) 
+{
 	int count1 = tree1.Counter(tree1.Root());
 	int count2 = tree2.Counter(tree2.Root());
 	if (count1 != count2) return false;
@@ -16,31 +17,19 @@ bool Equal(Tree<int> tree1, Tree<int> tree2) {
 	if (levels1 != levels2) return false;
 
 	for (int i = 1; i < pow(2, levels1); i++) {
-		if (tree1.FindKeyByPos(tree1.Root(), i) != tree2.FindKeyByPos(tree2.Root(), i)) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if (tree1.FindValueByPos(tree1.Root(), i) != tree2.FindValueByPos(tree2.Root(), i)) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && (tree2.FindKeyByPos(tree2.Root(), i))) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if ((tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i))) {
-			tree1.EqualTr = false;
-			tree2.EqualTr = false;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i)) && (i == (pow(2, levels1)) - 1)) {
-			tree1.EqualTr = tree1.EqualTr;
-			tree2.EqualTr = tree2.EqualTr;
-		}
-		if (!(tree1.FindKeyByPos(tree1.Root(), i)) && !(tree2.FindKeyByPos(tree2.Root(), i))) {
-			i++;
-		}
+		int key1 = tree1.FindKeyByPos(tree1.Root(), i);
+		int key2 = tree2.FindKeyByPos(tree2.Root(), i);
+		int value1 = tree1.FindValueByPos(tree1.Root(), i);
+		int value2 = tree2.FindValueByPos(tree2.Root(), i);
+
+		if (key1 != key2) return false;
+		if (value1 != value2) return false;
+		if (!key1 && key2) return false;
+		if (key1 && !key2) return false;
+		if (!key1 && !key2 && (i == (pow(2, levels1)) - 1)) continue;
+		if (!key1 && !key2) i++;
 	}
-	return tree1.EqualTr;
+	return true;
 }
 
 TEST_CASE("Check Add") {

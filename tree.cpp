@@ -28,9 +28,7 @@ int Tree<int>::Levels(Node* root)
 
 int Tree<int>::Delete(int delkey) 
 {
-	if (root == nullptr) {
-		return 0;
-	}
+	if (root == nullptr) return 0;
 	Node* pointer = root;
 	Node* parent = nullptr;
 
@@ -111,9 +109,7 @@ int Tree<int>::Delete(int delkey)
 
 int Tree<int>::FindKeyByPos(Node* root, int posfind) 
 {
-	if ((posfind < 1) || (posfind > (pow(2, Levels(root)) - 1))) {
-		return 0;
-	}
+	if ((posfind < 1) || (posfind > (pow(2, Levels(root)) - 1))) return 0;
 	if (root != nullptr) {
 		if ((root->pos) == posfind) {
 			key = root->key;
@@ -127,9 +123,7 @@ int Tree<int>::FindKeyByPos(Node* root, int posfind)
 
 int Tree<int>::FindValueByPos(Node* root, int posfind) 
 {
-	if ((posfind < 1) || (posfind >(pow(2, Levels(root)) - 1))) {
-		return 0;
-	}
+	if ((posfind < 1) || (posfind >(pow(2, Levels(root)) - 1))) return 0;
 	if (root != nullptr) {
 		if ((root->pos) == posfind) {
 			value = root->value;
